@@ -1,6 +1,6 @@
 # Integry SDK ReactJS Example
 
-![Nuxt Integry SDK Screengrab](static/screengrab-react.png 'Screengrab')
+![React Integry SDK Screengrab](static/screengrab-react.png 'Screengrab')
 
 ## Getting Started with Create React App
 
