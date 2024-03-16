@@ -14,7 +14,7 @@ function App() {
       const deploymentId = "<DEPLOY_ID>";
 
       // This is intended for use in testing only!
-      // Please refer to sdk.integry.io for more details
+      // Please refer to docs.integry.io for more details
       const hash = await Helpers.getAuthHash(userId, appSecret);
 
       const integryHandle = new IntegryJS({
