@@ -11,7 +11,6 @@ function App() {
       const appKey = "<APP_KEY>";
       const appSecret = "<APP_SECRET>";
       const userId = "<USER_ID>";
-      const deploymentId = "<DEPLOY_ID>";
 
       // This is intended for use in testing only!
       // Please refer to docs.integry.io for more details
@@ -21,12 +20,22 @@ function App() {
         appKey,
         hash,
         userId,
-        deploymentId,
+        xIntegryConfig: {
+          appAuth: {
+            apiKey: '<USER_API_KEY>', // replace with your end-user's API key
+          },
+        },
       });
 
       integryHandle.init({
-        containerId: "my-sdk-container",
-        renderMode: IntegryJS.RenderModes.INLINE,
+        containerId: "my-sdk-container", /* Add the dom container id where you want to render sdk */
+        showApps: true, /* Add this flag if you want to group Flows by App*/
+        renderMode: IntegryJS.RenderModes.INLINE, /* View App List in a modal or inline? Pass IntegryJS.RenderModes.MODAL or IntegryJS.RenderModes.INLINE.*/
+        viewStyle: IntegryJS.ViewStyles.COMFORTABLE, /* View Style: IntegryJS.ViewStyles.COMFORTABLE or IntegryJS.ViewStyles.COMPACT */
+      });
+
+      integryHandle.eventEmitter.on('ready', (data) => {
+        console.log('ready', data);
       });
     };
     init();
